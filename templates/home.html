@@ -1,3 +1,44 @@
-<h1>Hello World
-    
-</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>California Housing Price Prediction</title>
+</head>
+<body>
+    <h1>Predict Housing Price</h1>
+
+    <!-- Form starts -->
+    <form action="{{ url_for('predict') }}" method="post">
+        <label>MedInc:</label>
+        <input type="text" name="MedInc" required><br><br>
+
+        <label>HouseAge:</label>
+        <input type="text" name="HouseAge" required><br><br>
+
+        <label>AveRooms:</label>
+        <input type="text" name="AveRooms" required><br><br>
+
+        <label>AveBedrms:</label>
+        <input type="text" name="AveBedrms" required><br><br>
+
+        <label>Population:</label>
+        <input type="text" name="Population" required><br><br>
+
+        <label>AveOccup:</label>
+        <input type="text" name="AveOccup" required><br><br>
+
+        <label>Latitude:</label>
+        <input type="text" name="Latitude" required><br><br>
+
+        <label>Longitude:</label>
+        <input type="text" name="Longitude" required><br><br>
+
+        <button type="submit">Predict</button>
+    </form>
+    <!-- Form ends -->
+
+    <!-- Display Prediction -->
+    {% if prediction_text %}
+        <h2 style="color: green;">{{ prediction_text }}</h2>
+    {% endif %}
+</body>
+</html>
